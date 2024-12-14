@@ -164,18 +164,16 @@ cp $location/cacti/include/config.php.dist $location/cacti/include/config.php
 
 
 ##Adding Maria DB conf  
+echo "max_heap_table_size = 128M"    >>  /etc/mysql/mariadb.conf.d/50-server.cnf
+echo "tmp_table_size = 128M"         >>  /etc/mysql/mariadb.conf.d/50-server.cnf
+echo "innodb_buffer_pool_size = 2048M" >>  /etc/mysql/mariadb.conf.d/50-server.cnf
+echo "innodb_doublewrite=OFF" >>  /etc/mysql/mariadb.conf.d/50-server.cnf
 echo "innodb_flush_log_at_timeout = 4" >>  /etc/mysql/mariadb.conf.d/50-server.cnf
 echo "innodb_read_io_threads = 34"   >>  /etc/mysql/mariadb.conf.d/50-server.cnf
 echo "innodb_write_io_threads = 17" >> /etc/mysql/mariadb.conf.d/50-server.cnf
-echo "max_heap_table_size = 70M"    >>  /etc/mysql/mariadb.conf.d/50-server.cnf
-echo "tmp_table_size = 70M"         >>  /etc/mysql/mariadb.conf.d/50-server.cnf
-echo "join_buffer_size = 130M" >>  /etc/mysql/mariadb.conf.d/50-server.cnf
-echo "innodb_buffer_pool_size = 250M" >>  /etc/mysql/mariadb.conf.d/50-server.cnf
 echo "innodb_io_capacity = 5000" >>  /etc/mysql/mariadb.conf.d/50-server.cnf
 echo "innodb_io_capacity_max = 10000" >>  /etc/mysql/mariadb.conf.d/50-server.cnf
-echo "innodb_file_format = Barracuda" >>  /etc/mysql/mariadb.conf.d/50-server.cnf
-echo "innodb_large_prefix = 1" >>  /etc/mysql/mariadb.conf.d/50-server.cnf
-
+echo "collation-server = utf8mb4_unicode_ci" >>  /etc/mysql/mariadb.conf.d/50-server.cnf
 
 systemctl restart mysql
 
