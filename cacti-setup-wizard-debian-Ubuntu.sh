@@ -20,8 +20,8 @@
 #    along with this program.  If not, see <https://www.gnu.org/licenses/>.#
 
 
-echo "this script requires git"
-apt-get install git  -y
+echo "this script requires git and wget"
+apt-get install git wget  -y
 
 
 
